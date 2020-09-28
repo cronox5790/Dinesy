@@ -1,0 +1,27 @@
+﻿@model DISENEY_PIXAR.Models.CortometrajeViewModel
+@{
+    Layout = "_Layout";
+}
+<div id="principalPeliculas">
+
+    <div id="pelis">
+
+        @foreach (var cate in Model.Categorias)
+        {
+
+            <h1>@cate.Nombre</h1>
+
+            @foreach (var cort in cate.Cortometraje)
+            {
+                <div>
+                    <a class="imgPelicula" href="~/@cort.Nombre.Replace(" ","-")/Cortometraje">
+                        <img src="~/images/portadas/@(cort.Id)_pc.jpg" alt="@cort.Nombre">
+                    </a>
+                    <div class="nombrePelicula">
+                        <p>@cort.Nombre</p>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
